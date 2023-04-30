@@ -8,7 +8,7 @@ import DateDisplay from "./DateDisplay";
 function App() {
   const [budgetPlan, setBudgetPlan] = useState("");
   const [expenses, setExpenses] = useState([]);
-  const [newExpense, setNewExpense] = useState({ title: "", amount: 0 });
+  const [newExpense, setNewExpense] = useState({ title: "", amount: 0, date: ""});
   const [date, setDate] = useState(new Date());
   const [newDate, setNewDate] = useState(new Date());
 
@@ -108,7 +108,7 @@ function App() {
       <ExpenseList
         expenses={expenses}
         handleDeleteExpense={handleDeleteExpense}
-        date={date}
+        date={date} handleDateChange={handleDateChange}
       />
       </div>
     </div>

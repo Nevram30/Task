@@ -20,7 +20,7 @@ function ExpenseForm({
       <label>Item Amount:</label>
 
       <input
-        type="number "
+        type="number"
         value={newExpense.amount}
         onChange={handleNewExpenseAmount}
         placeholder="Expense Amount"
