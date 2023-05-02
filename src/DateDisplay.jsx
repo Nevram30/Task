@@ -1,6 +1,6 @@
 import React from "react";
 
-function DateDisplay({ date, handleDateChange }) {
+function DateDisplay({ date, handleDateChange, handleNewDate }) {
   return (
     <div className="date pb-5">
       <label>Date:</label>

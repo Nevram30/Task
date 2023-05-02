@@ -3,45 +3,54 @@ import React, { useState } from "react";
 function ExpenseItem({ expense, handleDeleteExpense, handleUpdateExpense, date }) {
   const expenseDate = new Date(date);
   const expenseDateString = expenseDate.toLocaleDateString("en-US");
-
   const [isEditMode, setIsEditMode] = useState(false);
   const [updatedExpense, setUpdatedExpense] = useState(expense);
 
   const handleEdit = () => {
     setIsEditMode(true);
   };
+          const handleCancel = () => {
+            setIsEditMode(false);
+            setUpdatedExpense(expense);
+          };
+                      const handleSave = () => {
+                        const updatedExpenseWithDate = {
+                          ...updatedExpense,
+                          date: currentDate.toISOString().slice(0, 10),
+                        } 
+                        handleUpdateExpense(updatedExpenseWithDate);
+                        setIsEditMode(true);
+                      };
 
-  const handleCancel = () => {
-    setIsEditMode(false);
-    setUpdatedExpense(expense);
-  };
+                      // const handleSubmit = (e) => {
+                      //   e.preventDefault();
+                      //   if (editingIndex === null) {
+                      //     setTasks([...tasks, currentTask]);
+                      //     setCurrentTask('');
+                      //   } else {
+                      //     const newTasks = [...tasks];
+                      //     ntingIndewTasks[ediex] = editingTask;
+                      //     setTasks(newTasks);
+                      //     setEditingIndex(null);
+                      //     setEditingTask('');
+                      //   }
+                      // }; 
+                      // () => handleSubmit} return props in onclick function
 
-  const handleSave = () => {
-    const currentDate = new Date();
-    const updatedExpenseWithDate = {
-      ...updatedExpense,
-      date: currentDate.toISOString().slice(0, 10),
-    }
-
-    handleUpdateExpense(updatedExpenseWithDate);
-    setIsEditMode(false);
-  };
-
-
-  
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setUpdatedExpense({
-      ...updatedExpense,
-      [name]: value,
-    });
-  };
+                              
+                              const handleChange = (event) => {
+                                      const { name, value } = event.target;
+                                      setUpdatedExpense({
+                                        ...updatedExpense,
+                                        [name]: value,
+                                      });
+                                    };
 
   return (
-    <tr >
+    <tr>
       {!isEditMode && (
         <>
-          <td>{expense.title}</td>
+          <td className="row p-2">{expense.title}</td>
           <td>{expense.amount}</td>
           <td>{expenseDateString}</td>
           <td>
@@ -70,8 +79,8 @@ function ExpenseItem({ expense, handleDeleteExpense, handleUpdateExpense, date }
           </td>
           <td>{expenseDateString}</td>
           <td>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
+            <button onClick={handleSave} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-3 mr-2 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+            <button onClick={handleCancel} class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-3 mr-2 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</button>
           </td>
         </>
       )}

@@ -5,10 +5,10 @@ function ExpenseList({ expenses, handleDeleteExpense, handleUpdateExpense, date 
   return (
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h2 className="mt-5 font-bold mb-5">Item List</h2>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Items</th>
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 p-10">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-10">
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 p-10">
+            <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-white p-2">Items</th>
             <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Amount</th>
             <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Date</th>
             <th scope="row" class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Action</th>

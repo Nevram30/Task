@@ -1,5 +1,8 @@
 import React from "react";
 
+// functional components with 2 props - budgetPlan and handleBudgetPlan -
+// The first parameter in the function will specific the input value to any input value
+// The second parameter in the function will trigger the changes once the input is change 
 function BudgetPlanForm({ budgetPlan, handleBudgetPlan }) {
   return (
     <div className="form mb-5">
@@ -10,5 +13,6 @@ function BudgetPlanForm({ budgetPlan, handleBudgetPlan }) {
     </div>
   );
 }
-
+// export default specifies component is exported making it available 
+// for use in other parts of the application.
 export default BudgetPlanForm;
