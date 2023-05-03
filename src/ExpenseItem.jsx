@@ -4,12 +4,11 @@ import PropTypes from "prop-types";
 function ExpenseItem({
   expense,
   handleDeleteExpense,
-  handleUpdateExpense,
   date,
 }) {
   const expenseDate = new Date(date);
   const expenseDateString = expenseDate.toLocaleDateString("en-US");
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState();
   const [updatedExpense, setUpdatedExpense] = useState(expense);
 
   const handleEdit = () => {
@@ -18,14 +17,11 @@ function ExpenseItem({
 
   const handleCancel = () => {
     setIsEditMode(false);
-    setUpdatedExpense(expense);
   };
 
   const handleSave = () => {
     setIsEditMode(false);
-    handleUpdateExpense(updatedExpense);
   };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUpdatedExpense({
@@ -57,6 +53,7 @@ function ExpenseItem({
           </td>
         </>
       )}
+
       {isEditMode && (
         <>
           <td>
@@ -79,7 +76,6 @@ function ExpenseItem({
           <td>
             <button
               onClick={handleSave}
-              onChange={handleChange}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-3 mr-2 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Save

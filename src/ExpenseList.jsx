@@ -45,9 +45,7 @@ function ExpenseList({
               key={index}
               expense={expense}
               handleDeleteExpense={() => handleDeleteExpense(index)}
-              handleUpdateExpense={(updatedExpense) =>
-                handleUpdateExpense(index, updatedExpense)
-              }
+              handleUpdateExpense={(updatedExpense) => handleUpdateExpense(index, updatedExpense)}
               date={date}
             />
           ))}
