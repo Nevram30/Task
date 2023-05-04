@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function DateDisplay({ date, handleDateChange}) {
+function DateDisplay({ date, handleDateChange }) {
   return (
     <div className="date pb-5">
       <label>Date:</label>
@@ -19,4 +19,3 @@ DateDisplay.propTypes = {
 };
 
 export default DateDisplay;
-

@@ -20,4 +20,3 @@ BudgetPlanForm.propTypes = {
 };
 
 export default BudgetPlanForm;
-

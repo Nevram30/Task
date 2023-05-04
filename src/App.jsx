@@ -8,9 +8,13 @@ import DateDisplay from "./DateDisplay";
 function App() {
   const [budgetPlan, setBudgetPlan] = useState("");
   const [expenses, setExpenses] = useState([]);
-  const [newExpense, setNewExpense] = useState({ title: "", amount: 0 });
+  const [newExpense, setNewExpense] = useState({
+    title: "",
+    amount: 0,
+    date: " ",
+  });
   const [date, setDate] = useState(new Date());
-  const [newDate, setNewDate] = useState({ date: " " });
+  const [newDate, setNewDate] = useState();
 
   const handleBudgetPlan = (event) => {
     setBudgetPlan(event.target.value);
@@ -55,7 +59,6 @@ function App() {
     const totalExpenses = calculateTotalExpenses();
     return budgetPlan - totalExpenses;
   };
-
   const handleDateChange = (event) => {
     setDate(new Date(event.target.value));
   };
@@ -71,7 +74,7 @@ function App() {
   }, [date]);
 
   return (
-    <div>
+    <div className="w-full h-screen">
       <div className="text-center font-black text-lg mt-5">
         <h1 className="mb-10">BUDGET TRACKING APP</h1>
       </div>

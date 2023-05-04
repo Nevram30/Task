@@ -5,8 +5,8 @@ function ExpenseSummary({ totalExpenses, remainingBudget }) {
     <div className="expense-summary">
       <h1 className="font-poppins font-bold mb-5">Expense Summary</h1>
       <div className="flex gap-10">
-        <p className="font-bold">Total Items:</p> ${totalExpenses}
-        <p className="font-bold">Remaining Budget:</p> ${remainingBudget}
+        <p className="font-bold">Total Items:${totalExpenses}</p>
+        <p className="font-bold">Remaining Budget:${remainingBudget}</p>
       </div>
     </div>
   );
@@ -14,8 +14,7 @@ function ExpenseSummary({ totalExpenses, remainingBudget }) {
 
 ExpenseSummary.propTypes = {
   totalExpenses: PropTypes.number.isRequired,
-  remainingBudget: PropTypes.number.isRequired
-  
+  remainingBudget: PropTypes.number.isRequired,
 };
 
 export default ExpenseSummary;
