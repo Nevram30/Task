@@ -6,19 +6,24 @@ import ExpenseSummary from "./ExpenseSummary";
 import DateDisplay from "./DateDisplay";
 
 function App() {
-  const [budgetPlan, setBudgetPlan] = useState("");
+  const [budgetPlan, setbudgetPlan] = useState([]);
+  const [newbudgetPlan, setnewBudgetPlan] = useState({ amount: "" });
   const [expenses, setExpenses] = useState([]);
   const [newExpense, setNewExpense] = useState({
     title: "",
-    amount: 0,
+    amount: " ",
     date: " ",
   });
   const [date, setDate] = useState(new Date());
   const [newDate, setNewDate] = useState();
 
-  const handleBudgetPlan = (event) => {
-    setBudgetPlan(event.target.value);
+  const handleNewBudgetPlan = (event) => {
+    setnewBudgetPlan({
+      ...newbudgetPlan,
+      amount: Number(event.target.value),
+    });
   };
+
   const handleNewExpenseTitle = (event) => {
     setNewExpense({ ...newExpense, title: event.target.value });
   };
@@ -33,11 +38,22 @@ function App() {
     setNewDate({ date: "" });
   };
 
+  // handleAddBudget
+  const handleAddBudget = (event) => {
+    event.preventDefault();
+    if (newbudgetPlan.amount > 0) {
+      setbudgetPlan([...budgetPlan, newbudgetPlan]);
+      setnewBudgetPlan({ amount: " " });
+    } else {
+      alert("Please enter a valid amount");
+    }
+  };
+
   // Add expense
   const handleAddExpense = () => {
     if (newExpense.title !== "" && newExpense.amount > 0) {
       setExpenses([...expenses, newExpense]);
-      setNewExpense({ title: "", amount: 0 });
+      setNewExpense({ title: " ", amount: " " });
     }
   };
   // for deleting data items from the list
@@ -57,7 +73,7 @@ function App() {
   // Calculate the remaining budget
   const calculateRemainingBudget = () => {
     const totalExpenses = calculateTotalExpenses();
-    return budgetPlan - totalExpenses;
+    return newbudgetPlan.amount - totalExpenses;
   };
   const handleDateChange = (event) => {
     setDate(new Date(event.target.value));
@@ -87,8 +103,9 @@ function App() {
             handleDateChange={handleDateChange}
           />
           <BudgetPlanForm
-            budgetPlan={budgetPlan}
-            handleBudgetPlan={handleBudgetPlan}
+            newbudgetPlan={newbudgetPlan}
+            handleNewBudgetPlan={handleNewBudgetPlan}
+            handleAddBudget={handleAddBudget}
           />
           <ExpenseForm
             newExpense={newExpense}

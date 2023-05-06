@@ -1,7 +1,12 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function ExpenseItem({ expense, handleDeleteExpense, date }) {
+function ExpenseItem({
+  expense,
+  handleDeleteExpense,
+  handleUpdateExpense,
+  date,
+}) {
   const expenseDate = new Date(date);
   const expenseDateString = expenseDate.toLocaleDateString("en-US");
   const [isEditMode, setIsEditMode] = useState();
@@ -17,12 +22,11 @@ function ExpenseItem({ expense, handleDeleteExpense, date }) {
 
   const handleSave = () => {
     setIsEditMode(false);
+    handleUpdateExpense(expense);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log("Value: ", event.target.value);
-    console.log("Name: ", event.target.name);
     setUpdatedExpense({
       ...updatedExpense,
       [name]: value,
