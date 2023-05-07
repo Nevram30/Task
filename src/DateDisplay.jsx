@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function DateDisplay({ date, handleDateChange }) {
   return (
     <div className="date pb-5">
-      <label>Date:</label>
+      <label className="font-poppins">Date:</label>
       <input
         type="date"
         value={date.toISOString().substr(0, 10)}

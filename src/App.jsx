@@ -92,11 +92,11 @@ function App() {
   return (
     <div className="w-full h-screen">
       <div className="text-center font-black text-lg mt-5">
-        <h1 className="mb-10">BUDGET TRACKING APP</h1>
+        <h1 className="mb-10 font-poppins">BUDGET TRACKING APP</h1>
       </div>
       <div className="grid gap-10 grid-cols-2 grid-rows-1">
         <div className="border-2 ml-20 p-5 rounded-lg">
-          <h2 className="font-poppins font-bold mb-5">Budget Saving Tracker</h2>
+          <h2 className="font-bold mb-5 font-poppins">Budget Saving Tracker</h2>
           <DateDisplay
             date={date}
             handleNewExpenseDate={handleNewExpenseDate}

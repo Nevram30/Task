@@ -9,31 +9,31 @@ function ExpenseList({
 }) {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <h2 className="mt-5 font-bold mb-5">Item List</h2>
+      <h2 className="mt-5 font-bold mb-5 font-poppins">Item List</h2>
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 p-10">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-10">
           <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 p-10">
             <th
               scope="row"
-              className="font-medium text-gray-900 whitespace-nowrap dark:text-white p-2"
+              className="font-medium text-gray-900 whitespace-nowrap dark:text-white p-2 font-poppins"
             >
               Items
             </th>
             <th
               scope="row"
-              className="font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              className="font-medium text-gray-900 whitespace-nowrap dark:text-white font-poppins"
             >
               Amount
             </th>
             <th
               scope="row"
-              className="font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              className="font-medium text-gray-900 whitespace-nowrap dark:text-white font-poppins"
             >
               Date
             </th>
             <th
               scope="row"
-              className="font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              className="font-medium text-gray-900 whitespace-nowrap dark:text-white font-poppins"
             >
               Action
             </th>
