@@ -9,13 +9,12 @@ function App() {
   const [budgetPlan, setbudgetPlan] = useState([]);
   const [newbudgetPlan, setnewBudgetPlan] = useState({ amount: "" });
   const [expenses, setExpenses] = useState([]);
+  const [date, setDate] = useState(new Date());
   const [newExpense, setNewExpense] = useState({
     title: "",
     amount: " ",
-    date: " ",
+    date: new Date(),
   });
-  const [date, setDate] = useState(new Date());
-  const [newDate, setNewDate] = useState();
 
   const handleNewBudgetPlan = (event) => {
     setnewBudgetPlan({
@@ -33,10 +32,6 @@ function App() {
   const handleNewExpenseDate = (event) => {
     setNewExpense({ ...newExpense, date: event.target.value });
   };
-  const handleNewDate = () => {
-    setDate([...date, newDate]);
-    setNewDate({ date: "" });
-  };
 
   // handleAddBudget
   const handleAddBudget = (event) => {
@@ -53,7 +48,7 @@ function App() {
   const handleAddExpense = () => {
     if (newExpense.title !== "" && newExpense.amount > 0) {
       setExpenses([...expenses, newExpense]);
-      setNewExpense({ title: " ", amount: " " });
+      setNewExpense({ title: " ", amount: " ", date: new Date() });
     }
   };
   // for deleting data items from the list
@@ -122,9 +117,6 @@ function App() {
           <ExpenseList
             expenses={expenses}
             handleDeleteExpense={handleDeleteExpense}
-            date={date}
-            handleNewDate={handleNewDate}
-            handleDateChange={handleDateChange}
           />
         </div>
       </div>

@@ -1,14 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function ExpenseItem({
-  expense,
-  handleDeleteExpense,
-  handleUpdateExpense,
-  date,
-}) {
-  const expenseDate = new Date(date);
-  const expenseDateString = expenseDate.toLocaleDateString("en-US");
+function ExpenseItem({ expense, handleDeleteExpense, handleUpdateExpense }) {
   const [isEditMode, setIsEditMode] = useState();
   const [updatedExpense, setUpdatedExpense] = useState(expense);
 
@@ -39,7 +32,13 @@ function ExpenseItem({
         <>
           <td>{updatedExpense.title}</td>
           <td>{updatedExpense.amount}</td>
-          <td>{expenseDateString}</td>
+          <td>
+            {updatedExpense.date.toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </td>
           <td>
             <button
               onClick={handleEdit}
@@ -75,7 +74,9 @@ function ExpenseItem({
               onChange={handleChange}
             />
           </td>
-          <td>{expenseDateString}</td>
+          <td>
+            <input type="date" name="date" value={updatedExpense.date} />
+          </td>
           <td>
             <button
               onClick={handleSave}
@@ -100,7 +101,6 @@ ExpenseItem.propTypes = {
   expense: PropTypes.object.isRequired,
   handleDeleteExpense: PropTypes.func.isRequired,
   handleUpdateExpense: PropTypes.func.isRequired,
-  date: PropTypes.string.isRequired,
 };
 
 export default ExpenseItem;
